@@ -24,10 +24,11 @@
         data1 <- cbind(subject_test, x_test, y_test)
         data2 <- cbind(subject_train, x_train, y_train)
         data <- rbind (data1, data2)
-        data
-        
+        write.csv(data, "tidy_data_1.csv")
 
-        # 2. Extracts only the measurements on the mean and standard deviation 
+#----------------------------------------------------------
+        
+# 2. Extracts only the measurements on the mean and standard deviation 
 # for each measurement. 
 # First pull in the feature names.
         setwd("/Users/danielt/Dropbox/R/hopkins/getdata/courseproject/UCI HAR Dataset/")
@@ -48,6 +49,8 @@
         
 # Pull the appropriate columns
         data2 <- data[, index]
+
+#----------------------------------------------------------        
         
 # 3. Uses descriptive activity names to name the activities in the data set
     #    features2 = features$V2
@@ -57,10 +60,16 @@
     #            features2[j] <- gsub(")","_", features2[j])
     #    }
 
+#----------------------------------------------------------                
+        
 # 4. Appropriately labels the data set with descriptive variable names. 
     #    features2 = factor(c("id", features2, "activity"))
 
+#----------------------------------------------------------                
+        
 # 5. Creates a second, independent tidy data set with the average of each 
 # variable for each activity and each subject. 
 # Use the apply function to do this. Argument is 2 for column.
         data3 = apply(data, 2, mean)
+        
+#----------------------------------------------------------                
